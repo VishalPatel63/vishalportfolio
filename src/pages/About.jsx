@@ -36,11 +36,11 @@ export const About = () => {
   About Me
 </h1>
 
-<h2 className='text-2xl sm:text-3xl mt-3 font-semibold text-white tracking-wide'>
+<h2 className='text-2xl sm:text-3xl mt-1 font-semibold text-white tracking-wide'>
   Full Stack Developer
 </h2>
 
-<p className='mt-5 text-base sm:text-lg font-medium text-pure-greys-300 leading-relaxed max-w-3xl px-4 lg:px-0'>
+<p className='mt-2 text-base sm:text-lg font-medium text-pure-greys-300 leading-relaxed max-w-3xl px-4 lg:px-0'>
   I am a passionate <span className="text-blue-400 font-semibold">Full Stack Web Developer</span> 
   , and Computer Science student, skilled in <span className="text-purple-400">React.js</span>, 
   <span className="text-purple-400"> Node.js</span>, <span className="text-purple-400">Express</span>, 
@@ -121,8 +121,7 @@ export const About = () => {
                 <h4 className="text-xl font-semibold text-blue-300">Skills & Interests:</h4>
                 <p className="text-gray-300">
                   Passionate about <span className="text-purple-300">Full-Stack Development, Machine Learning</span>, 
-                  and <span className="text-purple-300">Problem Solving</span>. Enthusiastic about coding competitions 
-                  and open-source contributions.
+                  and <span className="text-purple-300">Problem Solving</span>. Enthusiastic about coding competitions.
                 </p>
               </div>
             </motion.div>
@@ -135,3 +134,4 @@ export const About = () => {
     </div>
   );
 }
+
