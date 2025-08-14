@@ -12,8 +12,8 @@ export const Projectss = ({ skill, showAll = false }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      <h1 className='text-center text-4xl font-extrabold mb-12 text-white'>
-        {showAll ? "All Projects" : "Our Projects"}
+      <h1 cclassName="text-center text-4xl font-extrabold mb-12 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        {showAll ? "Projects" : "Our Projects"}
       </h1>
 
       <div className='flex flex-wrap justify-center gap-10 w-full'>
@@ -24,4 +24,5 @@ export const Projectss = ({ skill, showAll = false }) => {
     </motion.div>
   );
 };
+
 
