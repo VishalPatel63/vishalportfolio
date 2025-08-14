@@ -36,11 +36,11 @@ export const About = () => {
   About Me
 </h1>
 
-<h2 className='text-2xl sm:text-3xl mt-1 font-semibold text-white tracking-wide'>
+<h2 className='text-2xl sm:text-3xl  font-semibold text-white tracking-wide'>
   Full Stack Developer
 </h2>
 
-<p className='mt-2 text-base sm:text-lg font-medium text-pure-greys-300 leading-relaxed max-w-3xl px-4 lg:px-0'>
+<p className=' text-base sm:text-lg font-medium text-pure-greys-300 leading-relaxed max-w-3xl px-4 lg:px-0'>
   I am a passionate <span className="text-blue-400 font-semibold">Full Stack Web Developer</span> 
   , and Computer Science student, skilled in <span className="text-purple-400">React.js</span>, 
   <span className="text-purple-400"> Node.js</span>, <span className="text-purple-400">Express</span>, 
@@ -134,4 +134,5 @@ export const About = () => {
     </div>
   );
 }
+
 
