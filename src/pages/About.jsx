@@ -110,7 +110,7 @@ export const About = () => {
                   <li>
                     <span className="font-semibold text-white">10th Grade:</span>
                     Krishak Inter Mediate College, Mangari, Jaunpur
-                    <span className="text-gray-400"> (2019)</span>
+                    <span className="text-gray-400"> (2018)</span>
                     — <span className="text-green-400">83.33%</span>
                   </li>
                 </ul>
@@ -134,5 +134,6 @@ export const About = () => {
     </div>
   );
 }
+
 
 
