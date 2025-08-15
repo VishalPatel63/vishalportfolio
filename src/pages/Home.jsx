@@ -1,7 +1,8 @@
 import React from 'react'
 import vishalIm  from "../userAsset/visha.png"
 import { TypeAnimation } from 'react-type-animation';
-import { FaFacebook, FaInstagramSquare, FaTwitter, FaWhatsappSquare } from 'react-icons/fa';
+import {FaInstagramSquare, FaGithub} from 'react-icons/fa';
+import { CiLinkedin } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import { About } from './About';
 import { Projects } from './Projects';
@@ -41,7 +42,9 @@ export const Home = () => {
              sequence={['Full Stack Developer', 1000, 'Web Developer', 1000, 'Backend Developer', 1000]}
              repeat={Infinity}
          omitDeletionAnimation={true}
-     style={{ display: 'inline-block', color: '#14F1D9', fontSize: '1.5rem' }}
+     style={{ display: 'inline-block', color: '#E879F9', fontSize: '1.5rem' }}
+
+
 
           />
         </div>
@@ -57,29 +60,38 @@ export const Home = () => {
 
 
         {/* Social Media Icons */}
-       <div className='flex justify-center lg:justify-start gap-6 mt-6'>
-  {[FaTwitter, FaFacebook, FaInstagramSquare, FaWhatsappSquare].map((Icon, index) => (
-    <motion.div
+<div className='flex justify-center lg:justify-start gap-6 mt-6'>
+  {[
+    { icon: FaGithub, link: "https://github.com/VishalPatel63" },
+    { icon: CiLinkedin, link: "https://www.linkedin.com/in/vishal-patel-03569925a/" },
+    { icon: FaInstagramSquare, link: "https://instagram.com" },
+  ].map(({ icon: Icon, link }, index) => (
+    <motion.a
       key={index}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.95 }}
-      className='relative group cursor-pointer'
+      className='relative group w-[50px] h-[50px] cursor-pointer'
     >
       {/* Glow Effect */}
       <div className='absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-md opacity-0 
-                      group-hover:opacity-100 transition duration-300'></div>
+                      group-hover:opacity-100 transition duration-300 pointer-events-none'></div>
 
       {/* Icon Background */}
-      <div className='w-[50px] h-[50px] bg-richblack-800 border border-gray-600 rounded-full flex items-center justify-center
+      <div className='w-full h-full bg-richblack-800 border border-gray-600 rounded-full flex items-center justify-center
                       shadow-md group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300'>
         <Icon
           size={26}
           className='text-white group-hover:text-blue-300 transition-colors duration-300'
         />
       </div>
-    </motion.div>
+    </motion.a>
   ))}
 </div>
+
+
 
         {/* Download Button */}
         <div className='flex justify-center lg:justify-start mt-1 pb-2'>
