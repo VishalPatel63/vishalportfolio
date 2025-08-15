@@ -25,6 +25,7 @@ const skill2 = [
   "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
   "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
   "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221215185252/DSA.png"
+  "https://www.python.org/static/community_logos/python-logo.png"
 ]
 
 const codingProfiles = [
@@ -158,3 +159,4 @@ export const Skill = () => {
     </motion.div>
   )
 }
+
