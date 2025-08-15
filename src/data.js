@@ -23,7 +23,7 @@ const data = [
 	},
 	{
 		id: 2,
-		name: "Inventry Management",
+		name: "Inventory Management",
         info:"MERN Stack project",
 		image: inventry,
 		goto : "https://railway-management-roan.vercel.app/"
@@ -82,5 +82,6 @@ const data = [
 
 	
 ];
+
 
 export default data;
