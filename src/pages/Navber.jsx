@@ -18,7 +18,7 @@ export const Navber = () => {
     <div className="flex items-center">
     <h1 className="text-2xl sm:text-3xl font-extrabold tracking-wide 
   bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
- V/Portfolio
+   Vishal
 </h1>
     </div>
 
@@ -114,4 +114,5 @@ export const Navber = () => {
   </nav>
   )
 }
+
 
