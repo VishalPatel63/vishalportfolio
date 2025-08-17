@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import vishalIm from "../userAsset/visha.png"
 import { motion } from 'framer-motion'
 import Footer from '../common/Footer'
+import { Link } from "react-router-dom";
 
 export const About = () => {
   const [seemore, setSeeMore] = useState(false);
@@ -72,61 +73,79 @@ export const About = () => {
           </div>
 
           {/* Expanded More About Me Section */}
-          {seemore && (
-            <motion.div
-              className="mt-6 p-6 bg-white/10 backdrop-blur-lg text-white rounded-lg shadow-lg 
-              border border-richblack-400 hover:border-blue-400/50 transition-all duration-300 hover:shadow-blue-500/50"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-            >
-              <h3 className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4 border-b border-gray-600 pb-2">
-                More About Me
-              </h3>
+{seemore && (
+  <motion.div
+    className="mt-6 p-6 bg-white/10 backdrop-blur-lg text-white rounded-lg shadow-lg 
+               border border-richblack-400 hover:border-blue-400/50 transition-all duration-300 hover:shadow-blue-500/50"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.6, ease: "easeInOut" }}
+  >
+    <h3 className="text-3xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 
+                   bg-clip-text text-transparent mb-4 border-b border-gray-600 pb-2">
+      More About Me
+    </h3>
 
-              {/* Name Section */}
-              <div className="mb-4">
-                <h4 className="text-xl font-semibold text-blue-300">Name:</h4>
-                <p className="text-gray-200">Vishal Patel</p>
-              </div>
+    {/* Name Section */}
+    <div className="mb-4">
+      <h4 className="text-xl font-semibold text-blue-300">Name:</h4>
+      <p className="text-gray-200">Vishal Patel</p>
+    </div>
 
-              {/* Academic Details */}
-              <div className="mb-4">
-                <h4 className="text-xl font-semibold text-blue-300">Education:</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2">
-                  <li>
-                    <span className="font-semibold text-white">B.Tech in Computer Science & Engineering:</span>
-                    Madan Mohan Malaviya University of Technology, Gorakhpur
-                    <span className="text-gray-400"> (2022 – 2026)</span>
-                    — <span className="text-green-400">CGPA: 8.33</span>
-                  </li>
-                  <li>
-                    <span className="font-semibold text-white">12th Grade (Science):</span>
-                    Baderi Inter College, Jaunpur
-                    <span className="text-gray-400"> (2021)</span>
-                    — <span className="text-green-400">76.2%</span>
-                  </li>
-                  <li>
-                    <span className="font-semibold text-white">10th Grade:</span>
-                    Krishak Inter Mediate College, Mangari, Jaunpur
-                    <span className="text-gray-400"> (2019)</span>
-                    — <span className="text-green-400">83.33%</span>
-                  </li>
-                </ul>
-              </div>
+    {/* Academic Details */}
+    <div className="mb-4">
+      <h4 className="text-xl font-semibold text-blue-300">Education:</h4>
+      <ul className="list-disc list-inside text-gray-300 space-y-2">
+        <li>
+          <span className="font-semibold text-white">B.Tech in Computer Science & Engineering:</span>
+          Madan Mohan Malaviya University of Technology, Gorakhpur
+          <span className="text-gray-400"> (2022 – 2026)</span>
+          — <span className="text-green-400">CGPA: 8.33</span>
+        </li>
+        <li>
+          <span className="font-semibold text-white">12th Grade (Science):</span>
+          Baderi Inter College, Jaunpur
+          <span className="text-gray-400"> (2021)</span>
+          — <span className="text-green-400">76.2%</span>
+        </li>
+        <li>
+          <span className="font-semibold text-white">10th Grade:</span>
+          Krishak Inter Mediate College, Mangari, Jaunpur
+          <span className="text-gray-400"> (2019)</span>
+          — <span className="text-green-400">83.33%</span>
+        </li>
+      </ul>
+    </div>
 
-              {/* Skills & Interests */}
-              <div>
-                <h4 className="text-xl font-semibold text-blue-300">Skills & Interests:</h4>
-                <p className="text-gray-300">
-                  Passionate about <span className="text-purple-300">Full-Stack Development, Machine Learning</span>, 
-                  and <span className="text-purple-300">Problem Solving</span>. Enthusiastic about coding competitions 
-                  and open-source contributions.
-                </p>
-              </div>
-            </motion.div>
-          )}
+ 
+    <div className="mb-6">
+      <h4 className="text-xl font-semibold text-blue-300">Skills & Interests:</h4>
+      <p className="text-gray-300">
+        Passionate about <span className="text-purple-300">Full-Stack Development, Machine Learning</span>, 
+        and <span className="text-purple-300">Problem Solving</span>. Enthusiastic about coding competitions.
+      </p>
+    </div>
+
+    
+    <div className="flex gap-4 mt-4">
+      <Link
+        to="/skills"
+        className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shadow-md 
+                   text-white border font-semibold hover:scale-105 transition-transform duration-300"
+      >
+        View Skills
+      </Link>
+      <Link
+        to="/project"
+        className="px-4 py-2 bg-gradient-to-r from-pink-500 to-richblack-500 rounded-lg shadow-md 
+                   text-white border  font-semibold hover:scale-105 transition-transform duration-300"
+      >
+        View Projects
+      </Link>
+    </div>
+  </motion.div>
+)}
         </div>
       </div>
 
