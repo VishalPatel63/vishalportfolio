@@ -39,9 +39,15 @@ export const Home = () => {
           {/* Content Section */}
           <div className='order-2 lg:order-1 mt-10 lg:mt-20 w-full lg:w-1/2 flex flex-col gap-y-6 text-center lg:text-left'>
             <h1 className="text-lg text-pure-greys-300 tracking-wide">Hello, It's Me</h1>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Vishal Patel
-            </h1>
+<h1
+  className="text-4xl sm:text-5xl font-extrabold 
+             bg-gradient-to-r from-white via-purple-200 to-pink-500 
+             bg-clip-text text-transparent 
+             [text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]
+             "
+>
+  Vishal Patel
+</h1>
 
 <div className="text-xl sm:text-2xl font-bold mt-1 flex items-center">
   {/* Fixed part */}
@@ -131,3 +137,4 @@ export const Home = () => {
     </div>
   )
 }
+
