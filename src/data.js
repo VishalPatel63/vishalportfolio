@@ -31,7 +31,7 @@ const data = [
 	},
 	{
 		id: 3,
-		name: "Todo project",
+		name: "Todo App",
         info:"MERN Stack project",
 		image: todo,
 		goto : "https://todoproject-steel.vercel.app/"
@@ -85,3 +85,4 @@ const data = [
 
 
 export default data;
+
