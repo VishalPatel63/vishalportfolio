@@ -18,7 +18,7 @@ const data = [
 		name: "StudyNotion",
         info:"MERN Stack project",
 		image:studynotion,
-		goto : "https://studynotion-frontend-bay.vercel.app"
+		goto : "https://study-notion-weld-seven.vercel.app"
 		
 	},
 	{
@@ -85,4 +85,5 @@ const data = [
 
 
 export default data;
+
 
