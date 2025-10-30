@@ -115,8 +115,8 @@ export const Home = () => {
               <motion.a
                 whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px rgba(90, 24, 154, 0.7)" }}
                 transition={{ duration: 0.3 }}
-                href="/Vishalpatelresume.pdf"
-                download="Vishalpatelresume.pdf"
+                href="/resumevishal45.pdf"
+                download="resumevishal45.pdf"
                 className="w-[160px] text-center font-semibold border border-gray-400 px-4 py-3 text-[13px] cursor-pointer rounded-lg shadow-lg 
                            bg-gradient-to-r from-[#5A189A] to-[#1E3A8A] text-white hover:shadow-purple-900/50"
               >
@@ -137,4 +137,5 @@ export const Home = () => {
     </div>
   )
 }
+
 
