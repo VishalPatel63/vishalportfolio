@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import vishalIm from "../userAsset/visha.png"
 import { TypeAnimation } from 'react-type-animation';
 import { FaInstagramSquare, FaGithub } from 'react-icons/fa';
 import { CiLinkedin } from "react-icons/ci";
-import { useNavigate } from 'react-router-dom';
-import data from "../data"
 import Footer from '../common/Footer';
 import { Contacts } from '../common/Contacts';
+import { Projectss } from '../common/Projectss';
+import { Skill } from '../common/Skill';
+import { About } from './About';
+import data from '../data';
 import { motion } from 'framer-motion';
+import Achivements from './Achivements';
+import Experiences from './Experiences';
+
+
 
 export const Home = () => {
-  const [skill1, setSkill] = useState(data);
-  const navigate = useNavigate();
-
   return (
-    <div>
+    <div id='home' className='min-h-screen'>
       <div className='flex flex-col mx-auto w-11/12 max-w-maxContent mt-14'>
         
         <motion.div 
@@ -38,7 +41,12 @@ export const Home = () => {
 
           {/* Content Section */}
           <div className='order-2 lg:order-1 mt-10 lg:mt-20 w-full lg:w-1/2 flex flex-col gap-y-6 text-center lg:text-left'>
-            <h1 className="text-lg text-pure-greys-300 tracking-wide">Hello, It's Me</h1>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur-md mb-2">
+  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />
+  <h1 className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-cyan-300">
+    Hello, I'm
+  </h1>
+</div>
 <h1
   className="text-4xl sm:text-5xl font-extrabold 
              bg-gradient-to-r from-white via-purple-200 to-pink-500 
@@ -48,6 +56,7 @@ export const Home = () => {
 >
   Vishal Patel
 </h1>
+
 
 <div className="text-xl sm:text-2xl font-bold mt-1 flex items-center">
   {/* Fixed part */}
@@ -74,15 +83,11 @@ export const Home = () => {
 </div>
 
 
-            <p className='mt-1 text-base sm:text-left sm:text-lg font-medium text-richblack-50 px-4 lg:px-0 leading-relaxed'>
-              I’m a passionate <span className="text-blue-400 font-semibold">Full Stack Web Developer</span>, 
-              and <span className="text-purple-400 font-semibold">Computer Science student</span>, skilled in 
-              <span className="text-blue-300"> React.js</span>, <span className="text-blue-300">Node.js</span>, 
-              <span className="text-blue-300"> Express</span>, <span className="text-blue-300">MongoDB</span>, 
-              and <span className="text-blue-300">Tailwind CSS</span>. I enjoy creating modern, responsive web 
-              applications and solving challenging problems in 
-              <span className="text-blue-300"> Data Structures & Algorithms</span>.
-            </p>
+<p className="mt-2 text-base sm:text-lg font-medium text-pure-greys-5 px-4 lg:px-0 leading-relaxed max-w-2xl">
+  I’m a <span className="text-cyan-400 font-semibold">Full Stack Developer</span> and <span className="text-pink-300 font-semibold">Computer Science student</span>
+   passionate about building scalable web applications with the <span className="text-cyan-300 font-semibold">MERN Stack</span> and solving complex problems in <span className="text-pink-300 font-semibold">Data Structures & Algorithms</span> using 
+   <span className="text-cyan-300 font-semibold"> C++ & Python</span>.
+</p>
 
             {/* Social Media Icons */}
             <div className='flex justify-center lg:justify-start gap-6 mt-6'>
@@ -111,24 +116,61 @@ export const Home = () => {
             </div>
 
             {/* Download Resume Button */}
-            <div className='flex justify-center lg:justify-start mt-1  pb-2'>
+            <div className='flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mt-1 pb-2'>
               <motion.a
-                whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px rgba(90, 24, 154, 0.7)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(90, 24, 154, 0.7)" }}
                 transition={{ duration: 0.3 }}
-                href="/resumevishal45.pdf"
-                download="resumevishal45.pdf"
+                href="/Vishalpatelresume.pdf"
+                download="Vishalpatelresume.pdf"
                 className="w-[160px] text-center font-semibold border border-gray-400 px-4 py-3 text-[13px] cursor-pointer rounded-lg shadow-lg 
                            bg-gradient-to-r from-[#5A189A] to-[#1E3A8A] text-white hover:shadow-purple-900/50"
               >
                 Download Resume
               </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(59, 130, 246, 0.7)" }}
+                transition={{ duration: 0.3 }}
+                href="#contact"
+                className="w-[160px] text-center font-semibold border border-gray-400 px-4 py-3 text-[13px] rounded-lg shadow-lg 
+                  bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white hover:shadow-blue-900/50 transition-all duration-300"
+              >
+                Get in Touch
+              </motion.a>
             </div>
           </div>
         </motion.div>
 
-        <div className='mt-5'>
+       {/* Achievement Stats */}
+
+<section id='achivement'>
+
+     <Achivements/>
+</section>
+
+        <section id='about' >
+          <About hideFooter />
+        </section>
+        <section id='experiences'>
+          <Experiences/>
+        </section>
+
+        <section id='projects'>
+          <div className='mx-auto w-full max-w-maxContent'>
+            <div className='mb-10 text-center'>
+              <h2 className='text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent'>Projects</h2>
+              <p className='mt-3 text-richblack-300 max-w-2xl mx-auto'>All my featured web applications are shown here so you can explore the work I build end to end.</p>
+            </div>
+            <Projectss skill={data} showAll={true} />
+          </div>
+        </section>
+
+        <section id='skills'>
+          <Skill />
+        </section>
+
+        <section id='contact'>
           <Contacts />
-        </div>
+        </section>
       </div>
       
       <div>
@@ -137,5 +179,3 @@ export const Home = () => {
     </div>
   )
 }
-
-
