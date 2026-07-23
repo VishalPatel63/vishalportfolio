@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaSquareGithub } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 export const Contacts = () => {
   const {
     register,
@@ -14,33 +17,46 @@ export const Contacts = () => {
 
   const createFormdata = async (data) => {
     console.log(data);
-    // Simulate API send
     setTimeout(() => {
       setSuccessMessage("Message sent successfully ✅");
-    }, 300);
+      reset();
+    }, 800);
   };
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }
-  }, [isSubmitSuccessful, reset]);
-
-  useEffect(() => {
     if (successMessage) {
-      const timer = setTimeout(() => {
-        setSuccessMessage("");
-      }, 3000); // hide after 3s
+      const timer = setTimeout(() => setSuccessMessage(""), 3000);
       return () => clearTimeout(timer);
     }
   }, [successMessage]);
 
-  const fields = ["name", "email", "subject", "message"];
+  // Contact Info Data
+  const contactInfo = [
+    {
+      icon: <MdEmail />,
+      label: "EMAIL",
+      value: "vp1088124@gmail.com",
+      link: "mailto:vp1088124@gmail.com",
+    },
+    {
+      icon: <FaPhoneAlt/>,
+      label: "PHONE",
+      value: "+91 6391044971",
+      link: "tel:+916391044971",
+    },
+    {
+      icon: <FaSquareGithub />,
+      label: "GITHUB",
+      value: "github.com/VishalPatel63",
+      link: "https://github.com/VishalPatel63",
+    },
+    {
+      icon: <FaLinkedin />,
+      label: "LINKEDIN",
+      value: "linkedin.com/in/vishal-patel-03569925a/",
+      link: "https://www.linkedin.com/in/vishal-patel-03569925a/",
+    },
+  ];
 
   return (
     <>
@@ -51,103 +67,119 @@ export const Contacts = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-6 right-6 px-5 py-3 rounded-lg bg-green-600 text-white font-semibold shadow-lg z-50"
+            className="fixed top-6 right-6 px-6 py-3 rounded-xl bg-transparent text-white font-medium shadow-xl z-50"
           >
             {successMessage}
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Contact Form */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="flex flex-col justify-center items-center mx-auto w-11/12 max-w-maxContent mt-14 p-5 rounded-lg border border-gray-500/30 
-        bg-richblack-800 backdrop-blur-xl shadow-lg"
-      >
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-white text-center sm:text-left bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-        >
-          Contact Me
-        </motion.h1>
-
-        <motion.h3
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-lg text-richblack-50 text-center sm:text-left"
-        >
-          Questions, thoughts, or just want to say hello?
-        </motion.h3>
-
-        {/* Form */}
-        <div className="w-full flex justify-center mt-8">
-          <motion.form
-            onSubmit={handleSubmit(createFormdata)}
-            className="w-full sm:w-[60%] space-y-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+      <div className="min-h-screen flex items-center justify-center px-6 py-20 bg-transparent">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left Side - Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
           >
-            {fields.map((field, idx) => (
-              <div key={idx} className="relative">
-                {field !== "message" ? (
-                  <motion.input
-                    id={field}
-                    className="peer w-full bg-transparent border border-gray-400/40 p-3 pt-5 rounded-lg 
-                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white placeholder-transparent"
-                    type={field === "email" ? "email" : "text"}
-                    placeholder="Enter your value"
-                    {...register(field, { required: true })}
-                  />
-                ) : (
-                  <motion.textarea
-                    id={field}
-                    className="peer w-full bg-transparent border border-gray-400/40 p-3 pt-5 rounded-lg min-h-[120px]
-                    focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white placeholder-transparent resize-none"
-                    placeholder="Enter your value"
-                    {...register(field, { required: true })}
-                  />
-                )}
-                <label
-                  htmlFor={field}
-                  className="absolute left-3 top-1 text-gray-400 text-xs transition-all
-                  peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500
-                  peer-focus:top-1 peer-focus:text-xs peer-focus:text-blue-400"
-                >
-                  {field.charAt(0).toUpperCase() + field.slice(1)}
-                </label>
-                {errors[field] && (
-                  <span className="text-sm text-red-400">
-                    Please enter your {field}
-                  </span>
-                )}
-              </div>
-            ))}
+            <div className="mb-8">
+              <p className="text-lg text-pure-greys-5 leading-relaxed">
+                I'm currently looking for new opportunities in Software Enginneer , Software developer and full stack developer ,web developer . 
+                Whether you have a question or just want to say hi, my inbox is always open!
+              </p>
+            </div>
 
-            {/* Submit Button */}
-            <motion.div className="flex justify-center">
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 0px 15px rgba(90, 24, 154, 0.7)",
-                }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="w-[160px] text-center font-semibold border border-gray-400 px-4 py-3 text-[16px] cursor-pointer rounded-lg shadow-lg 
-                bg-gradient-to-r from-[#5A189A] to-[#1E3A8A] text-white hover:shadow-purple-900/50"
+            {contactInfo.map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, x: 5 }}
+                className="group flex items-center gap-4 bg-[#111827] hover:bg-transparent 
+                           border border-white/10 rounded-2xl p-5 transition-all duration-300"
               >
-                Send Message
+                <div className="text-3xl text-pure-greys-5">{item.icon}</div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-pure-greys-5 mb-1">
+                    {item.label}
+                  </p>
+                  <p className="text-cyan-300 group-hover:text-cyan-200 transition-colors">
+                    {item.value}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Right Side - Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-[#111827] border border-white/10 rounded-3xl p-8 shadow-2xl"
+          >
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Get In Touch</h2>
+
+            <form onSubmit={handleSubmit(createFormdata)} className="space-y-6">
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-pure-greys-5 mb-2">NAME</label>
+                <input
+                  type="text"
+                  {...register("name", { required: true })}
+                  className="w-full bg-[#1f2937] border border-gray-600 focus:border-cyan-400 rounded-xl px-5 py-4 text-white placeholder-pure-greys-5 focus:outline-none transition"
+                  placeholder="Your name"
+                />
+                {errors.name && <p className="text-red-400 text-sm mt-1">Name is required</p>}
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-pure-greys-5 mb-2">EMAIL</label>
+                <input
+                  type="email"
+                  {...register("email", { required: true })}
+                  className="w-full bg-[#1f2937] border border-gray-600 focus:border-cyan-400 rounded-xl px-5 py-4 text-white placeholder-pure-greys-5 focus:outline-none transition"
+                  placeholder="your@email.com"
+                />
+                {errors.email && <p className="text-red-400 text-sm mt-1">Email is required</p>}
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-pure-greys-5 mb-2">SUBJECT</label>
+                <input
+                  type="text"
+                  {...register("subject", { required: true })}
+                  className="w-full bg-[#1f2937] border border-gray-600 focus:border-cyan-400 rounded-xl px-5 py-4 text-white placeholder-pure-greys-5 focus:outline-none transition"
+                  placeholder="Subject"
+                />
+                {errors.subject && <p className="text-red-400 text-sm mt-1">Subject is required</p>}
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-pure-greys-5 mb-2">MESSAGE</label>
+                <textarea
+                  {...register("message", { required: true })}
+                  rows={5}
+                  className="w-full bg-[#1f2937] border border-gray-600 focus:border-cyan-400 rounded-2xl px-5 py-4 text-white placeholder-pure-greys-5 focus:outline-none transition resize-none"
+                  placeholder="Your message..."
+                />
+                {errors.message && <p className="text-red-400 text-sm mt-1">Message is required</p>}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full py-4 rounded-2xl font-semibold text-lg bg-gradient-to-r from-cyan-400 to-blue-600 
+                           hover:from-cyan-300 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-cyan-500/30"
+              >
+                Send Message →
               </motion.button>
-            </motion.div>
-          </motion.form>
+            </form>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };
