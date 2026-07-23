@@ -8,9 +8,7 @@ export const AllProjects = () => {
   return (
     <div className="min-h-screen bg-richblack-900">
       <Projectss skill={skill1} showAll={true} />
-       <Footer/>
+      <Footer/>
     </div>
   );
-
 };
-
